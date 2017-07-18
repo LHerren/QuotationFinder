@@ -1,0 +1,7 @@
+### QuotationFinder Configuration File
+
+# Patterned after a file by BRENT MICHALSKI:
+# http://www.webreview.com/1998/10_23/developers/10_23_98_2.shtml
+# http://www.webreview.com/1998/10_23/developers/database.shtml
+$quotationFinderDataDir = "/Library/WebServer/QuotationFinderData";
+$quotationFinderCss = "../../css/styles.css";

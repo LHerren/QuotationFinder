@@ -1,0 +1,23 @@
+
+<!--
+h1 {  font-size: 36px; font-family: Verdana, Arial, Helvetica, sans-serif}
+h2 {  font-size: 28px; font-family: Verdana, Arial, Helvetica, sans-serif}
+h3 {  font-size: 22px; font-family: Verdana, Arial, Helvetica, sans-serif}
+h4 {  font-size: 18px; font-family: Verdana, Arial, Helvetica, sans-serif}
+h5 {  font-size: 16px; font-family: Verdana, Arial, Helvetica, sans-serif}
+h6 {  font-size: 14px; font-family: Verdana, Arial, Helvetica, sans-serif}
+li {  font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif}
+p {  font-size: 12px}
+body {  font-size: 12px; font-family: Verdana, Arial, Helvetica, 
+sans-serif; background-color: #FFFFFF}
+.roman {  font-size: 12px}
+.small {  font-size: 9px}
+.bold {  font-style: bold}
+.greek {  font-size: 14px; font-family: "Arial Unicode MS", "Lucida Grande", "Palatino Linotype", "TITUS Cyberbit Basic", Vusillus}
+span.highlight {  color: red}
+span.corematch {  color: red}
+span.match {  color: purple}
+span.greek {  font-size: 12px; font-family: "Arial Unicode MS", "Lucida Grande", "Palatino Linotype", "TITUS Cyberbit Basic", Vusillus}
+a {  text-decoration: none}
+td {  font-size: 12px; vertical-align: top}
+-->

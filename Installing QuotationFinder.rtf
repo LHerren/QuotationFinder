@@ -1,0 +1,121 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11905\paperh16837\margl1440\margr1440\vieww27380\viewh16520\viewkind0
+\pard\tx1440\tx2880\tx4320\tx5760\tx7200\partightenfactor0
+
+\f0\fs24 \cf0 Installing QuotationFinder\
+\
+For all operating systems:\
+- Make sure the QuotationFinder files have the correct line endings for your operating system (open the file in a text editor and save it with different line endings, if necessary).\
+- Make sure the shebang line (first line of QuotationFinder-xxxx.cgi) has the correct path to your Perl interpreter (i.e. for Windows, you'll have to change it to something like #!C:\\Perl\\bin\\perl.exe).\
+- Make sure the paths in QuotationFinderConfig.txt match your setup (path to QuotationFinderData directory needs to be absolute due to chdir commands in the script; see below.)\
+- If your installation of QuotationFinder is to be accessed from other computers, change the two occurrences of "127.0.0.1" in QuotationFinder's index.html file by your computer's URL.\
+\
+In order to display Greek characters, you need to install a Web browser and a font compatible with Unicode Polytonic Greek:\
+- Go to www.stoa.org/unicode/ and read what browsers and fonts are available for your operating system.\
+- Download and install browser and font as directed there (recommended freely available font as of 01/02: Titus Cyberbit Basic).\
+\
+\
+\
+Installing QuotationFinder under Windows\
+\
+In order for QuotationFinder to run, a web server such as Apache has to be installed and configured for CGIs. Also, Perl needs to be installed. These items are not covered in detail here. The steps include:\
+- Downloading and installing a web server such as Apache (free; http://www.apache.org/).\
+- Configuring the web server - for example, in the case of Apache: Making sure that in httpd.conf, ScriptAlias points to the correct cgi-bin path.\
+- Downloading and installing Perl (free; http://www.cpan.org/ports/index.html or http://www.activestate.com).\
+\
+QuotationFinder requires two Perl modules that, as of November 2002, are not part of the ActiveState installations of Perl, namely DB_File and MLDBM. Check the ActiveState documentation on how to install modules.\
+\
+After installing these modules, do the following:\
+- Create a folder named QuotationFinderData in the same Web server directory as the HTML and CGI directories (with Apache, these would be the htdocs and cgi-bin directories).\
+- Open the file called "QuotationFinderConfig.txt" in a Text Editor and edit the line beginning "$quotationFinderDataDir =" to contain the correct path to the directory you just created (use forward slashes, as in C:/program files/Apache Group/Apache2/).\
+- In the Web server's HTML (htdocs) directory, first delete all index files, then copy QuotationFinder's "index.html" and "QuotationfinderHelp.html" files as well as the folder named "css" there.\
+- Finally, copy the files named "QuotationFinder-xxxx.cgi" and "QuotationFinderConfig.txt" to the Web server's CGI (cgi-bin) directory.\
+\
+\
+\
+Installing QuotationFinder under Mac OS X\
+\
+QuotationFinder itself is very easy to install. However, QuotationFinder requires MLDBM.pm, which is not part of the default Mac OS X installation of Perl (as of December 2002, at least) In order to install this module, you need to have a\'a0compiler. For OSX the easiest way to get a compiler is to install Command Line Tools for Xcode\'a0-- see http://learn.perl.org/installing/osx.html\
+\
+Install Command Line Tools for Xcode:\
+- Members of the Apple Developer Connection can download the Command Line Tools for Xcode for free from developer.apple.com.\
+- install Command Line Tools for Xcode\'a0(about 100\'a0Megs) either directly or through Xcode (several Gigs -- Xcode is also\'a0available through the\'a0App Store\'a0application. Some versions\'a0of the OSX install DVD or SSD come with the 'developer tools', which\'a0contains Xcode. Only the\'a0'unix tools' section of Xcode is actually required, no specific version of Xcode is needed, the latest is\'a0available\'a0directly through the App Store.)\
+- Follow the installation instructions that come with the software.\
+- For further information, see http://learn.perl.org/installing/osx.html\
+\
+Install MLDBM.pm, traditional method:\
+- Log out (Apple menu) and log back in as "root."\
+- Go to www.cpan.org and download the current version of the MLDBM module by Gurusamy Sarathy. It's free.\
+- Move the folder named MLDBM-2.00 (or later) to YourHarddiskName > Library > Perl.\
+- Start the Terminal application (in YourHarddiskName > Applications > Utilities).\
+- Type "cd /Library/Perl/MLDBM-2.00" (without quotation marks, changing the version number if appropriate) in the terminal window and hit the return key.\
+- Open the ReadMe file in the MLDBM folder and follow the installation instructions there by typing the commands in the terminal window and hitting the return key after every command line. Note that Data::Dumper is already installed on every Mac OS X system, so that you can ignore the Data::Dumper note in the MLDBM ReadMe file.\
+\
+Install MLDBM.pm using cpanm:\
+- Start the Terminal application (in YourHarddiskName > Applications > Utilities).\
+- Unless cpanm is already installed, type "cpan App::cpanminus" (without quotation marks) in the terminal window and hit the return key.\
+- Type "cpanm MLDBM" (without quotation marks) in the terminal window and hit the return key.\
+\
+\
+\
+Go to YourHarddisk/Library/WebServer/ and create a new folder named "QuotationFinderData".\
+\
+Open the folder named "Documents" in YourHarddisk/Library/WebServer/ and do the following:\
+- Remove all files that start with "index".\
+- Copy the QuotationFinder files named "index.html" and "QuotationFinderHelp.html" as well as the folder named "css" here.\
+\
+Open the folder named "CGI-Executables" in YourHarddisk/Library/WebServer/ and do the following:\
+- Copy the files named "QuotationFinder-0956.cgi" and "QuotationFinderConfig.txt" here. \
+- Start the Terminal application (in YourHarddiskName > Applications > Utilities).\
+- Enter "cd /Library/WebServer" and hit the return key.\
+- Enter "chmod o+w QuotationFinderData" and hit the return key.\
+- Enter "chmod o+x QuotationFinderData" and hit the return key. (Vgl. Laurie/Laurie, Apache, S. 37.)\
+- Enter "cd /Library/WebServer/Documents" and hit the return key.\
+- Enter "chmod o+r QuotationFinderHelp.html" and hit the return key.\
+- Enter "cd /Library/WebServer/CGI-Executables" and hit the return key.\
+- Enter "chmod o+x QuotationFinder-0956.cgi" and hit the return key.\
+\
+Now everything is installed. As QuotationFinder uses your Web browser for display, you need to switch on Mac OS X\'b4s built-in Web server and create a bookmark for easy access to QuotationFinder.\
+- Open Apple menu > System Preferences.\
+- Go to Sharing.\
+- Start Web Sharing, if it isn't on already.\
+- Open your favorite Web browser.\
+- Type "127.0.0.1" (without quotation marks) in the URL field and hit the return key.\
+- If the QuotationFinder welcome screen is displayed, create a bookmark so that you won't have to enter the above URL to start QuotationFinder in the future. You may want to move the bookmark to your browser\'b4s toolbar (your browser\'b4s help feature will tell you how to do this).\
+\
+Blocking access from network/Internet (if you know the administrator password; otherwise see Getting Administator\'b4s Privileges below first):\
+- Start Terminal application.\
+- Type "sudo pico /etc/httpd/httpd.conf" and press the enter key to open the document "httpd.conf" with the pico editor. Or, in 10.7 Lion:\
+  Type "sudo pico /etc/apache2/httpd.conf" and press the enter key to open the document "httpd.conf" with the pico editor. \
+- Type the administrator password to your Mac (nothing will appear on screen while you type) and press the Return key.\
+- Hold down "ctrl" and press the W key.\
+- After "Search :" type <Directory "/Library/WebServer/CGI-Executables"> and press the Return key.\
+- Change "Allow from all" (four lines down) to "Allow from localhost" (use arrow keys to move cursor.)\
+- Hold down ctrl and press the O key to save the file.\
+- Press the Return key to confirm the file name.\
+- Hold down ctrl and press the X key to exit the editor.\
+- Type "exit" and press the Return key.\
+- Open Apple menu > System Preferences.\
+- Go to Sharing.\
+- Stop Web Sharing if it's on.\
+- Start Web Sharing (this forces it to read the new settings.)\
+\
+Getting Administator\'b4s Privileges (if you don\'b4t know the administrator password)\
+- Print this page so that you have access to it while your Mac is down.\
+- Place the Mac OS X Install CD in your CD-ROM drive.\
+- Restart your Mac while holding down the C key.\
+- Once the Installer has started up, click "Reset Password..." from the "Installer" menu.\
+- Choose the volume on which Mac OS X is installed.\
+- Make sure that "System Administrator (Root)" is the active entry in the drop-down menu.\
+- Enter a password, then reenter it.\
+- Quit "Reset Passwords" and the "Installer."\
+- Click "Restart."\
+- Continue with instructions above.\
+\
+\
+\
+Installation Diogenes\
+\
+Follow the instructions given on the Diogenes website by Peter Heslin. Note that you need to be logged in as root when installing LWP.}
